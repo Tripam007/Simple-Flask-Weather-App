@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+</head>
+<body>
+  <h1>Simple Weather App 🌤️</h1>
+  <form method="POST">
+    <input type="text" name="city" placeholder="Enter city name" required>
+    <button type="submit">Check Weather</button>
+  </form>
+
+  {% if weather %}
+    {% if weather.error %}
+      <p style="color:red;">{{ weather.error }}</p>
+    {% else %}
+      <h2>Weather in {{ weather.city }}, {{ weather.region }}, {{ weather.country }}</h2>
+      <ul>
+        <li>Temperature: {{ weather.temperature }}°C</li>
+        <li>Feels Like: {{ weather.feelslike }}°C</li>
+        <li>Condition: {{ weather.condition }}</li>
+        <li>Humidity: {{ weather.humidity }}%</li>
+        
+      </ul>
+    {% endif %}
+  {% endif %}
+</body>
+</html>
